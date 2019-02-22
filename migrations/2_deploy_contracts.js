@@ -1,5 +1,5 @@
-var Store = artifacts.require("./Store.sol");
+var Adoption = artifacts.require("Store");
 
 module.exports = function(deployer) {
-    deployer.deploy(Store,100000,web.utils.toWei('0.1','ether'));
+    deployer.deploy(Store);
 };
