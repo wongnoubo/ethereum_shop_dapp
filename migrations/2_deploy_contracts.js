@@ -1,4 +1,4 @@
-var Adoption = artifacts.require("Store");
+var Store = artifacts.require("Store");
 
 module.exports = function(deployer) {
     deployer.deploy(Store);
