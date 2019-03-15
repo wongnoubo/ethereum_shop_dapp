@@ -60,7 +60,7 @@ contract Store is Token {
     // 商品
     struct Product {
         address owner;  // 所有者
-        string name;    // 游戏名
+        string name;    // 商品名
         string style;   // 类型
         string intro;   // 简介
         string rules;   // 玩法

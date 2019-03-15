@@ -1,4 +1,3 @@
-
 //! moment.js locale configuration
 //! locale : Turkish [tr]
 //! authors : Erhan Gundogan : https://github.com/erhangundogan,
@@ -65,22 +64,15 @@ export default moment.defineLocale('tr', {
         y : 'bir yıl',
         yy : '%d yıl'
     },
-    ordinal: function (number, period) {
-        switch (period) {
-            case 'd':
-            case 'D':
-            case 'Do':
-            case 'DD':
-                return number;
-            default:
-                if (number === 0) {  // special case for zero
-                    return number + '\'ıncı';
-                }
-                var a = number % 10,
-                    b = number % 100 - a,
-                    c = number >= 100 ? 100 : null;
-                return number + (suffixes[a] || suffixes[b] || suffixes[c]);
+    dayOfMonthOrdinalParse: /\d{1,2}'(inci|nci|üncü|ncı|uncu|ıncı)/,
+    ordinal : function (number) {
+        if (number === 0) {  // special case for zero
+            return number + '\'ıncı';
         }
+        var a = number % 10,
+            b = number % 100 - a,
+            c = number >= 100 ? 100 : null;
+        return number + (suffixes[a] || suffixes[b] || suffixes[c]);
     },
     week : {
         dow : 1, // Monday is the first day of the week.

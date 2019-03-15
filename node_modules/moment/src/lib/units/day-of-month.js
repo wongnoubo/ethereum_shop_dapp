@@ -15,7 +15,7 @@ addFormatToken('D', ['DD', 2], 'Do', 'date');
 
 addUnitAlias('date', 'D');
 
-// PRIORITY
+// PRIOROITY
 addUnitPriority('date', 9);
 
 // PARSING
