@@ -60,6 +60,9 @@ App = {
             num_display_entries: 4, // 连续分页主体部分显示的分页条目数
             num_edge_entries: 1 // 两侧显示的首尾分页的条目数
         });
+        if(tempList.length==0){
+            alert("没有找到该商品信息，请您换个搜索关键词( ˶‾᷄࿀‾᷅˵ )");
+        }
     },
 
 
@@ -203,6 +206,9 @@ App = {
     }
 };
 
+/**
+ * home.html关键词 查询
+ */
 function homeSearch() {
     var searchKeyWord = document.getElementById("home-keyword").value;
     App.getHomeProductByKeyword(searchKeyWord);

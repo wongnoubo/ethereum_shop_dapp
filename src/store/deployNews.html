@@ -20,7 +20,7 @@
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
     <script type="text/javascript" src="app/ipfs.js"></script><!--core-->
-    <script type="text/javascript" src="app/deployProducts.js"></script><!--core-->
+    <script type="text/javascript" src="deployNews.js"></script><!--core-->
 </head>
 
 <style type="text/css">
@@ -42,68 +42,44 @@
             <!--顶部模块-->
             <div class="notice">
                 <span class='notice-img'></span>
-                <span>请先解锁账户，再发布商品。</span>
+                <span>请先解锁账户，再发布资讯。</span>
             </div>
 
             <!--发布任务-->
             <div class="center-block" style="background-color: #fff;width: 600px;padding: 50px 0;margin: 50px auto;">
                 <form class="form-horizontal" id="form">
                     <div class="form-group">
-                        <label for="name" class="col-xs-4 control-label">商品: </label>
+                        <label for="newstitle" class="col-xs-4 control-label">资讯: </label>
                         <div class="col-xs-5">
-                            <input type="text" name="name" id="name" class="form-control input-sm duiqi"
+                            <input type="text" name="newstitle" id="newstitle" class="form-control input-sm duiqi"
                                    style="margin-top: 7px;">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="style" class="col-xs-4 control-label">类型: </label>
+                        <label for="newsstyle" class="col-xs-4 control-label">类型: </label>
                         <div class="col-xs-5">
-                            <select name="style" id="style" class="form-control input-xs select-duiqi"
+                            <select name="newsstyle" id="newsstyle" class="form-control input-xs select-duiqi"
                                     style="margin-top: 10px;">
-                                <option value="照片" style="color:#000000;">照片</option>
-                                <option value="电影" style="color:#000000;">电影</option>
-                                <option value="音乐" style="color:#000000;">音乐</option>
-                                <option value="程序" style="color:#000000;">程序</option>
-                                <option value="文章" style="color:#000000;">文章</option>
-                                <option value="书籍" style="color:#000000;">书籍</option>
+                                <option value="新闻" style="color:#000000;">新闻</option>
+                                <option value="通知" style="color:#000000;">通知</option>
+                                <option value="租赁" style="color:#000000;">租赁</option>
+                                <option value="借贷" style="color:#000000;">借贷</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="price" class="col-xs-4 control-label">价格: </label>
+                        <label for="newstext" class="col-xs-4 control-label">文本: </label>
                         <div class="col-xs-5">
-                            <input type="text" name="price" id="price" class="form-control input-sm duiqi"
-                                   style="margin-top: 7px;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="intro" class="col-xs-4 control-label">简介: </label>
-                        <div class="col-xs-5">
-                            <textarea rows="5" name="intro" id="intro" class="form-control input-sm duiqi"></textarea>
+                            <textarea rows="5" name="newstext" id="newstext" class="form-control input-sm duiqi"></textarea>
                             <span class="error"></span> <!-- error字数限制 -->
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="rules" class="col-xs-4 control-label">使用: </label>
-                        <div class="col-xs-5">
-                            <textarea rows="5" name="rules" id="rules" class="form-control input-sm duiqi"></textarea>
-                            <span class="error"></span> <!-- error字数限制 -->
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cover" class="col-xs-4 control-label">封面: </label>
+                        <label for="newscover" class="col-xs-4 control-label">封面: </label>
                         <div class="col-xs-5">
                             <!--upload-->
-                            <input type="file" name="cover" id="cover" accept="image/*">(jpg, png, bmp)
+                            <input type="file" name="newscover" id="newscover" accept="image/*">(jpg, png, bmp)
                             <a id="tip_cover" target='_blank' href='https://github.com/wongnoubo'> </a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="file" class="col-xs-4 control-label">文件: </label>
-                        <div class="col-xs-5">
-                            <!--upload-->
-                            <input type="file" name="file" id="file">
-                            <a id="tip_file" target='_blank' href='https://github.com/wongnoubo'> </a>
                         </div>
                     </div>
                     <div class="form-group">
