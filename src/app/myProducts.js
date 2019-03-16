@@ -22,6 +22,64 @@ App = {
     },
 
     ////////////////////////////////////////////////////////////////////////////////
+   /* getProductsByType: async function(type){
+        var publishedResult = await App._getPublishedProducts();
+        var purchasedResult = await App._getPurchasedProducts();
+        var result = publishedResult.concat(purchasedResult);
+        publishedResult = null;
+        purchasedResult = null;
+        var tempNum = result.length;
+        var resultList = new Array();
+        var start = 0;
+        for(var i = start;i<tempNum;i++){
+            var resultInfo = await App._getProductInfo(result[i]);
+            if(resultInfo[2]==type){
+                resultList.push(result[i]);
+            }
+        }
+        window.productList = resultList;
+        window.totalNum = resultList.length;
+        $("#pagination").pagination(totalNum, {
+            callback: App.pageCallback,
+            prev_text: '<<<',
+            next_text: '>>>',
+            ellipse_text: '...',
+            current_page: 0, // 当前选中的页面
+            items_per_page: 8, // 每页显示的条目数
+            num_display_entries: 4, // 连续分页主体部分显示的分页条目数
+            num_edge_entries: 1 // 两侧显示的首尾分页的条目数
+        });
+    },*/
+
+    getProductByKeyword: async function(keyword){
+    var publishedResult = await App._getPublishedProducts();
+    var purchasedResult = await App._getPurchasedProducts();
+    var result = publishedResult.concat(purchasedResult);
+    publishedResult = null;
+    purchasedResult = null;
+    var tempNum = result.length;
+    var resultList = new Array();
+    var start = 0;
+    for(var i = start;i<tempNum;i++){
+        var resultInfo = await App._getProductInfo(result[i]);
+        if(resultInfo[1].match(keyword)==null){
+        }else {
+            resultList.push(result[i]);
+        }
+    }
+    window.productList = resultList;
+    window.totalNum = resultList.length;
+    $("#pagination").pagination(totalNum, {
+        callback: App.pageCallback,
+        prev_text: '<<<',
+        next_text: '>>>',
+        ellipse_text: '...',
+        current_page: 0, // 当前选中的页面
+        items_per_page: 8, // 每页显示的条目数
+        num_display_entries: 4, // 连续分页主体部分显示的分页条目数
+        num_edge_entries: 1 // 两侧显示的首尾分页的条目数
+    });
+    },
 
     getPurchasedProducts: async function () {
         var result = await App._getPurchasedProducts();
@@ -162,7 +220,7 @@ App = {
     },
 
     ////////////////////////////////////////////////////////////////////////////////
-
+    
     _getPurchasedProducts: function () {
         return new Promise(function (resolve, reject) {
             store.deployed().then(function (storeInstance) {
@@ -225,6 +283,11 @@ App = {
         });
     }
 };
+
+function keyWordSearch() {
+    var keyword = document.getElementById("myProduct-keyword").value;
+    App.getProductByKeyword(keyword);
+}
 
 $(function () {
     // ##### note #####

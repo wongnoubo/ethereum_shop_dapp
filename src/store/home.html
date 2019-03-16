@@ -8,8 +8,8 @@
     <meta name="keywords" content="区块链，购物商店">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>购物商店</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>残剑购物商店</title>
+    <link href="images/icon.png" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css"/>
@@ -69,20 +69,20 @@
                     </a>
                 </div>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" placeholder="输入关键字搜索" id="keyword">
-                    <button class="btn btn-default btn-xs" id="searchBtn">查 询</button>
+                    <input type="text" class="form-control input-sm" placeholder="输入关键字搜索" id="home-keyword">
+                    <button class="btn btn-default btn-xs" id="searchBtn" style="background-color: #17d0ff"  onclick="homeSearch()">查 询</button>
                 </div>
                 <div class="col-xs-4" style="padding-right: 40px;text-align: right;">
                     <div class="btn-group">
-                        <button class="btn btn-default btn-xs" data-toggle="dropdown">类型<span class="caret"></span>
+                        <button class="btn btn-default btn-xs" data-toggle="dropdown" style="background-color: #17d0ff">类型<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="myProducts?page=0&style=动作">动作</a></li>
-                            <li><a href="myProducts?page=0&style=冒险">冒险</a></li>
-                            <li><a href="myProducts?page=0&style=休闲">休闲</a></li>
-                            <li><a href="myProducts?page=0&style=策略">策略</a></li>
-                            <li><a href="myProducts?page=0&style=模拟">模拟</a></li>
-                            <li><a href="myProducts?page=0&style=免费">免费</a></li>
+                            <li><a href="myProducts?page=0&style=照片">照片</a></li>
+                            <li><a href="myProducts?page=0&style=电影">电影</a></li>
+                            <li><a href="myProducts?page=0&style=音乐">音乐</a></li>
+                            <li><a href="myProducts?page=0&style=程序">程序</a></li>
+                            <li><a href="myProducts?page=0&style=文章">文章</a></li>
+                            <li><a href="myProducts?page=0&style=书籍">书籍</a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                             <a href="product.html?id=10086">
                                 <div style="position: relative;">
                                     <img id="cover" class="img-cover" src="images/dnf.jpg" alt="商品封面"/>
-                                    <figcaption id="name" class="img-caption">地下城与勇士</figcaption>
+                                    <figcaption id="name" class="img-caption">黃山</figcaption>
                                 </div>
                             </a>
                             <div class="caption">
@@ -157,8 +157,6 @@
         </div>
     </div><!--右侧内容栏-->
 </div><!--右侧内容栏-->
-
 </div>
-
 </body>
 </html>

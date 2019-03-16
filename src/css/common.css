@@ -183,7 +183,7 @@ body {
 }
 
 .tab-pane {
-    color: #9095ab;
+    color: #000000;
 }
 
 .tableHeader {
@@ -378,10 +378,10 @@ select {
 
 .select-duiqi {
     height: 25px !important;
-    color: #ccc !important;
+    color: #000000 !important;
     margin-left: -25px;
     margin-top: 6px;
-    width: 200px !important;
+    width: 300px !important;
 }
 
 .linkCcc {
@@ -412,3 +412,47 @@ select {
 .right {
     float: right;
 }
+
+.notice{
+    line-height:70px;
+    height:70px;
+    padding-left: 30px;
+}
+
+.notice-img{
+    background: url(../images/notice.png) no-repeat center / 100%;
+    width:20px;
+    height:20px;
+    padding-left: 10px;
+    display:inline-block;
+    margin-left:7px;
+}
+.safe{
+    line-height:70px;
+    height:70px;
+    padding-left: 30px;
+}
+.safe-img{
+    background: url(../images/safe.png) no-repeat center / 100%;
+    width:20px;
+    height:20px;
+    padding-left: 10px;
+    display:inline-block;
+    margin-left:7px;
+}
+
+.email-img {
+    background: url(../images/email.png) no-repeat center / 100%;
+    width:15px;
+    height:15px;
+    display:inline-block;
+}
+.email{
+    line-height:20px;
+    height:20px;
+    padding-left: 16px;
+}
+
+
+
+

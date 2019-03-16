@@ -8,8 +8,8 @@
     <meta name="keywords" content="区块链，购物商店">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>购物商店</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>残剑购物商店</title>
+    <link href="images/icon.png" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css"/>
@@ -27,24 +27,33 @@
     .error {
         font-weight: bold;
         padding-left: 16px;
-        color: #FFC0CB;
+        color: #5bff12;
+    }
+    .root-div {
+        height:100px;
+    }
+
+    .children-div{
+        position: relative;
+        top:50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 </style>
 
 <body>
-
 <div id="wrap">
-
     <!--左侧菜单栏-->
     <script type="text/javascript" src="js/nav.js"></script>
-
     <!--右侧内容栏-->
     <div id="rightContent">
         <!--右侧内容栏-->
         <div role="tabpanel" class="tab-pane">
             <!--顶部模块-->
-            <div class="check-div">
-                先解锁账户，再发布商品。
+            <div class="notice">
+                <span class='notice-img'></span>
+                <span>请先解锁账户，再发布商品。</span>
             </div>
 
             <!--发布任务-->
@@ -61,13 +70,13 @@
                         <label for="style" class="col-xs-4 control-label">类型: </label>
                         <div class="col-xs-5">
                             <select name="style" id="style" class="form-control input-xs select-duiqi"
-                                    style="margin-top: 7px;">
-                                <option value="动作">动作</option>
-                                <option value="冒险">冒险</option>
-                                <option value="休闲">休闲</option>
-                                <option value="策略">策略</option>
-                                <option value="模拟">模拟</option>
-                                <option value="免费">免费</option>
+                                    style="margin-top: 10px;">
+                                <option value="照片" style="color:#000000;">照片</option>
+                                <option value="电影" style="color:#000000;">电影</option>
+                                <option value="音乐" style="color:#000000;">音乐</option>
+                                <option value="程序" style="color:#000000;">程序</option>
+                                <option value="文章" style="color:#000000;">文章</option>
+                                <option value="书籍" style="color:#000000;">书籍</option>
                             </select>
                         </div>
                     </div>
@@ -119,8 +128,6 @@
             </div>
         </div> <!--右侧内容栏-->
     </div><!--右侧内容栏-->
-
 </div>
-
 </body>
 </html>

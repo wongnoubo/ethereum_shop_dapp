@@ -44,8 +44,8 @@ App = {
         var file = $("#file")[0].files[0];
 
         // 上传到 IPFS
-        cover = 'https://gateway.pinata.cloud/ipfs/' + await App._ipfsadd(cover);
-        file = 'https://gateway.pinata.cloud/ipfs/' + await App._ipfsadd(file);
+        cover = 'https://gateway.ipfs.io/ipfs/' + await App._ipfsadd(cover);
+        file = 'https://gateway.ipfs.io/ipfs/' + await App._ipfsadd(file);
         $("#tip_cover").html(cover).attr('href', cover);
         $("#tip_file").html(file).attr('href', file);
         // 上传到 Ethereum
@@ -94,7 +94,7 @@ $(function () {
     // ##### note #####
 
     // 激活导航
-    $("#fbyx-menu").addClass("menu-item-active");
+    $("#publish-menu").addClass("menu-item-active");
 
     // 简介限制
     var introCnt = 1000; // 简介字数最大限制

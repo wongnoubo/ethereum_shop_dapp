@@ -116,7 +116,7 @@ contract Store is Token {
     function getProductInfo(uint id) public view returns (
         address, string memory, string memory, string memory, string memory, uint, uint, uint, uint, string memory) {
         require(id < products.length);
-        // 获取游戏
+        // 获取商品
         Product storage g = products[id];
         return (g.owner, g.name, g.style, g.intro, g.rules,
         g.price, g.sales, g.score, g.date, g.cover);
