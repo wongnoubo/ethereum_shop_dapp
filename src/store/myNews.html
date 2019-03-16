@@ -20,7 +20,7 @@
     <script type="text/javascript" src="js/pagination.js"></script>
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
-    <script type="text/javascript" src="app/myProducts.js"></script><!--core-->
+    <script type="text/javascript" src="app/myNews.js"></script><!--core-->
 </head>
 
 <style type="text/css">
@@ -70,8 +70,8 @@
             <!--顶部导航-->
             <div class="check-div">
                 <div class="col-xs-4">
-                    <button class="btn btn-yellow btn-xs" onclick="App.getPurchasedProducts()">我购买的商品</button>
-                    <button class="btn btn-yellow btn-xs" onclick="App.getPublishedProducts()">我发布的商品</button>
+                    <button class="btn btn-yellow btn-xs" onclick="App.getPublishedNews()">我发布的资讯</button>
+                    <button class="btn btn-yellow btn-xs" onclick="App.getCommentedNews()">我评价的资讯</button>
                 </div>
                 <div class="col-xs-4">
                     <input type="text" class="form-control input-sm" placeholder="输入关键字搜索" id="myProduct-keyword">
@@ -82,12 +82,11 @@
                         <button class="btn btn-default btn-xs" data-toggle="dropdown" style="background-color: #17d0ff">类型<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="myProducts?page=0&style=照片">照片</a></li>
-                            <li><a href="myProducts?page=0&style=电影">电影</a></li>
-                            <li><a href="myProducts?page=0&style=音乐">音乐</a></li>
-                            <li><a href="myProducts?page=0&style=程序">程序</a></li>
-                            <li><a href="myProducts?page=0&style=文章">文章</a></li>
-                            <li><a href="myProducts?page=0&style=书籍">书籍</a></li>
+                            <li><a href="myNews?page=0&style=新闻">新闻</a></li>
+                            <li><a href="myNews?page=0&style=通知">通知</a></li>
+                            <li><a href="myNews?page=0&style=租赁">租赁</a></li>
+                            <li><a href="myNews?page=0&style=借贷">借贷</a></li>
+                            <li><a href="myNews?page=0&style=公告">公告</a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,38 +97,27 @@
                 <a href="store/home.html"><img src="images/bg.jpg" style="width: 100%;"></a>
             </div>
 
-            <!--我的商品-->
+            <!--资讯主页-->
             <div class="data-div">
-                <div class="row" id="products">
+                <div class="row" id="Viewnews">
                     <div class="col-sm-6 col-md-3" hidden><!--template-->
                         <div class="thumbnail">
-                            <a href="product.html?id=10086">
+                            <a href="myNews.html?id=10086">
                                 <div style="position: relative;">
-                                    <img id="cover" class="img-cover" src="images/huawei.jpg" alt="商品封面"/>
-                                    <figcaption id="name" class="img-caption">地下城与勇士</figcaption>
+                                    <img id="newscover" class="img-cover" src="images/pig.jpg" alt="资讯封面"/>
+                                    <figcaption id="newstitle" class="img-caption">租赁</figcaption>
                                 </div>
                             </a>
                             <div class="caption">
-                                <table class="dashed_tbl">
-                                    <tr>
-                                        <td>销量: <samp id="sales">100</samp></td>
-                                        <td>评分: <samp id="score">100</samp></td>
-                                    </tr>
-                                </table>
+                                <span class="label label-info">评分</span>
+                                <samp id="newsscore">10</samp>
+                                <br/>
                                 <span class="label label-info">类型</span>
-                                <samp id="style">冒险</samp>
+                                <samp id="newsstyle">租赁</samp>
                                 <br/>
-                                <span class="label label-info">简介</span>
-                                <samp id="intro">这是简介这是简介这是简介......</samp>
+                                <span class="label label-info">正文</span>
+                                <samp id="newstext">三室一厅房屋求租！联系电话：10086</samp>
                                 <br/>
-                                <span class="label label-info">玩法</span>
-                                <samp id="rules">这是玩法这是玩法这是玩法......</samp>
-                                <div align="center">
-                                    <button class="btn btn-danger btn-xs" onclick="App.start(10086)">查看商品</button>
-                                    <button data-toggle="modal" data-target="#modal" onclick="App.set(10086)">
-                                        <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,16 +142,16 @@
                             <div class="container-fluid">
                                 <form class="form-horizontal" id="starForm">
                                     <div class="form-group">
-                                        <label for="star" class="col-xs-4 control-label">打分</label>
+                                        <label for="newsstar" class="col-xs-4 control-label">打分</label>
                                         <div class="col-xs-8">
-                                            <div name="star" id="star"></div>
+                                            <div name="newsstar" id="newsstar"></div>
                                             <span id="hint"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="content" class="col-xs-4 control-label">留言</label>
+                                        <label for="newscontent" class="col-xs-4 control-label">留言</label>
                                         <div class="col-xs-8">
-                                            <textarea rows="3" name="content" id="content"
+                                            <textarea rows="3" name="content" id="newscontent"
                                                       class="form-control input-sm duiqi"></textarea>
                                             <span class="error"></span> <!-- error字数限制 -->
                                         </div>

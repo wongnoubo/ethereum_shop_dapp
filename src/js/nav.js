@@ -21,6 +21,16 @@ document.write("<!--左侧菜单栏-->\n" +
     "            <span class=\"glyphicon glyphicon-filter\"></span>&nbsp;&nbsp;&nbsp;发布商品\n" +
     "        </a>\n" +
     "    </div>\n" +
+    "    <div class=\"menu-item\" id=\"mynews-menu\" style=\"background-color:#ff5700;\">\n" +
+    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/myNews.html\">\n" +
+    "            <span class=\"glyphicon glyphicon-pushpin\"></span>&nbsp;&nbsp;&nbsp;我的资讯\n" +
+    "        </a>\n" +
+    "    </div>\n" +
+    "<div class=\"menu-item\" id=\"publishnews-menu\" style=\"background-color:#ff5700;\">\n" +
+    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/deployNews.html\">\n" +
+    "            <span class=\"glyphicon glyphicon-book\"></span>&nbsp;&nbsp;&nbsp;发布资讯\n" +
+    "        </a>\n" +
+    "    </div>\n" +
     "\n" +
     "    <div class=\"menu-title\"><span class=\"glyphicon glyphicon-home\"></span>&nbsp;&nbsp;&nbsp;商店</div>\n" +
     "    <div class=\"menu-item\" id=\"home-menu\" style=\"background-color:#ff5700;\">\n" +
@@ -35,14 +45,9 @@ document.write("<!--左侧菜单栏-->\n" +
     "    </div>\n" +
     "\n" +
     "    <div class=\"menu-title\"><span class=\"glyphicon glyphicon-cog\"></span>&nbsp;&nbsp;&nbsp;更多</div>\n" +
-    "    <div class=\"menu-item\" id=\"news-menu\" style=\"background-color:#ff5700;\">\n" +
-    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/news.html\">\n" +
+    "    <div class=\"menu-item\" id=\"newshome-menu\" style=\"background-color:#ff5700;\">\n" +
+    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/newsHome.html\">\n" +
     "            <span class=\"glyphicon glyphicon-camera\"></span>&nbsp;&nbsp;&nbsp;最新资讯\n" +
-    "        </a>\n" +
-    "    </div>\n" +
-    "    <div class=\"menu-item\" id=\"publishnews-menu\" style=\"background-color:#ff5700;\">\n" +
-    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/deployNews.html\">\n" +
-    "            <span class=\"glyphicon glyphicon-book\"></span>&nbsp;&nbsp;&nbsp;发布资讯\n" +
     "        </a>\n" +
     "    </div>\n" +
     "    <div class=\"menu-item\" id=\"help-menu\" style=\"background-color:#ff5700;\">\n" +

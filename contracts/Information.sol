@@ -1,6 +1,9 @@
 pragma solidity >=0.4.22 <0.6.0;
 
 contract Information{
+    constructor() public{
+
+    }
     struct UserNews{
         uint[] publishedNews;
         uint[] commentedNews;

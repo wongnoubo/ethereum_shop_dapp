@@ -20,11 +20,10 @@
     <script type="text/javascript" src="js/pagination.js"></script>
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
-    <script type="text/javascript" src="app/products.js"></script><!--core-->
+    <script type="text/javascript" src="app/news.js"></script><!--core-->
 </head>
 
 <body>
-
 <div id="wrap">
 
     <!--左侧菜单栏-->
@@ -36,72 +35,65 @@
         <div role="tabpanel" class="tab-pane">
             <!--顶部模块-->
             <div class="check-div">
-                抵制伪劣商品 注意自我保护 谨防受骗上当 享受健康生活
+                文明友善交流！
             </div>
-
-            <!-----商品详情上部分开始------->
+            <!--资讯主页-->
+            <!-----资讯详情上部分开始------->
             <div class="panelContainer">
-                <img id="cover" src="images/huawei.jpg" width="450" height="270"/>
+                <img id="newscover" src="images/pig.jpg" width="450" height="270"/>
                 <div class="info">
                     <span id="id" hidden>0</span>
-                    <span class="name" id="name">地下城与勇士</span>
-                    <span class="badge" id="style">冒险</span>
-                    <p class="price">价格：<samp id="price">￥100.00</samp></p>
-                    <p class="discount">优惠：<samp id="discount">￥69.00</samp></p>
-                    <p class="normal">销量：<samp id="sales">100</samp></p>
-                    <p class="normal">评分：<samp id="score">100</samp></p>
+                    <span class="name" id="newstitle">农科奇观——母猪上树</span>
+                    <span class="btn-primary" id="newsstyle">新闻</span>
+                    <p class="normal">评分：<samp id="newsscore">10</samp></p>
                     <p class="buy">
-                        <button id="buy" onclick="App.purchase()">立即购买</button>
-                        <button onclick="window.location.href='store/home.html'">返回主页</button>
+                        <button onclick="window.location.href='store/newsHome.html'">返回主页</button>
                     </p>
                 </div>
             </div>
-            <!-----商品详情上部分结束------->
+            <!-----资讯详情上部分结束------->
 
             <!--分割线-->
             <p class="line"></p>
 
-            <!-----商品详情下部分开始------->
+            <!-----资讯详情下部分开始------->
             <div class="panelContainer">
                 <p>
                     <span class="glyphicon glyphicon-user"></span>
-                    <samp id="owner">0xdb35A957F0C04a6739c48f4906D2aF09C447c0c4</samp>
+                    <samp id="newsowner">0xdb35A957F0C04a6739c48f4906D2aF09C447c0c4</samp>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>
-                    <samp id="date">2018-01-01</samp>
+                    <samp id="date">2019-03-07</samp>
                 </p>
 
-                <p class="title" id="panel01">商品简介</p>
-                <p id="intro">
-                   null
-                </p>
-
-                <p class="title" id="panel02">商品使用</p>
-                <p id="rules">
+                <p class="title" id="panetext">正文</p>
+                <p id="newstext">
                     null
                 </p>
 
-                <p class="title" id="panel03">买家评价(<samp id="comments_cnt">0</samp>)</p>
-                <div id="comments">
+                <p class="title" id="panecomment">读者评价(<samp id="news_comments_cnt">0</samp>)</p>
+                <div id="newscomments">
                     <div class="row" hidden><!--template-->
                         <div class="col-sm-1">
-                            <img src="images/buyer.jpg"/>
-                            <samp>***888</samp>
+                            <img src="images/buyer.png"/>
+                            <samp>***666</samp>
                         </div>
                         <div class="col-sm-11">
-                            <p>2018年01月01日 00:00</p>
-                            <p name="star" data-score="5"></p>
-                            <p>超级好的商品，大家可以放心购买！</p>
+                            <p>2019年04月15日 00:00</p>
+                            <p name="newsstar" data-score="5"></p>
+                            <p>哈哈哈，太好笑了！</p>
                         </div>
                     </div>
                     <hr/>
                 </div>
             </div>
             <!-----商品详情下部分结束------->
-        </div> <!--右侧内容栏-->
+            <!--底部分页-->
+            <footer class="footer">
+                <div id="paginationnews"></div>
+            </footer>
+        </div><!--右侧内容栏-->
     </div><!--右侧内容栏-->
-
 </div>
-
 </body>
 </html>

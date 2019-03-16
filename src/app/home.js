@@ -187,7 +187,7 @@ App = {
                 storeInstance.getProductLength.call().then(function (result) {
                     resolve(result);
                 }).catch(function (err) {
-                    alert("内部错误22: " + err);
+                    alert("内部错误: " + err);
                 });
             });
         });
@@ -199,7 +199,7 @@ App = {
                 storeInstance.getProductInfo.call(id).then(function (result) {
                     resolve(result);
                 }).catch(function (err) {
-                    alert("内部错误11: " + err);
+                    alert("内部错误: " + err);
                 });
             });
         });
