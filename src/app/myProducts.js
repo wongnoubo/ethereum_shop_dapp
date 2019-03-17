@@ -17,12 +17,11 @@ App = {
             // Set the provider for our contract
             window.store.setProvider(web3.currentProvider);
             // Init app
-            // ......
         });
     },
 
     ////////////////////////////////////////////////////////////////////////////////
-   /* getProductsByType: async function(type){
+   getProductsByType: async function(type){
         var publishedResult = await App._getPublishedProducts();
         var purchasedResult = await App._getPurchasedProducts();
         var result = publishedResult.concat(purchasedResult);
@@ -49,7 +48,7 @@ App = {
             num_display_entries: 4, // 连续分页主体部分显示的分页条目数
             num_edge_entries: 1 // 两侧显示的首尾分页的条目数
         });
-    },*/
+    },
 
     getProductByKeyword: async function(keyword){
     var publishedResult = await App._getPublishedProducts();
@@ -286,6 +285,39 @@ App = {
         });
     }
 };
+
+
+/**
+ * 获取链接中的变量style
+ */
+
+function getMyProductPageQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var pair = query.split("=");
+    if (pair[0] == variable) {
+        unicodeToZh(pair[1]);
+    }
+    return (false);
+}
+
+function unicodeToZh(pair) {
+    var target = pair[1].match(/\\u\d+/g);
+    if (target && target.length > 0) {
+        target = target[0];
+        var temp = value.replace(target, '{{@}}');
+        target = target.replace('\\u', '');
+        target = String.fromCharCode(parseInt(target));
+        return temp.replace("{{@}}", target);
+    } else {
+        return value;
+    }
+}
+
+function getParameter() {
+    var type = getMyProductPageQueryVariable("style");
+    alert(type);
+    App.getProductsByType(type);
+}
 
 function keyWordSearch() {
     var keyword = document.getElementById("myProduct-keyword").value;

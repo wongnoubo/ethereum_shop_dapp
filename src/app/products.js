@@ -32,7 +32,7 @@ App = {
         $("#style").html(result[2]);
         $("#intro").html(result[3]);
         $("#rules").html(result[4].toString());
-        $("#price").html(result[5].toString() * 100); // fake price
+        $("#price").html(result[5].toString() * 10); // fake price
         $("#discount").html(result[5].toString());
         $("#sales").html(result[6].toString());
         $("#score").html(result[7].toString());
@@ -46,7 +46,7 @@ App = {
             var result = await App._getCommentInfo(gid, i);
             content += '<div class="row">'
                 + '<div class="col-sm-1">'
-                + '<img src="images/buyer.jpg"/>'
+                + '<img src="images/buyer.png"/>'
                 + '<samp>***' + result[0].substr(-3) + '</samp>'
                 + '</div>'
                 + '<div class="col-sm-11">'
@@ -58,6 +58,14 @@ App = {
                 + '<hr/>';
         }
         $("#comments").append(content);
+        // 设置星星
+        $("[name^='star']").raty({
+            number: 10, // 星星上限
+            readOnly: true,
+            score: function () {
+                return $(this).attr('data-score');
+            }
+        });
     },
 
     purchase: function () {
@@ -148,12 +156,4 @@ $(function () {
     App.init();
     // ##### note #####
 
-    // 设置星星
-    $("[name^='star']").raty({
-        number: 10, // 星星上限
-        readOnly: true,
-        score: function () {
-            return $(this).attr('data-score');
-        }
-    });
 });

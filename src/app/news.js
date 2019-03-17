@@ -41,11 +41,11 @@ App = {
             var result = await App._getNewsCommentInfo(gid, i);
             content += '<div class="row">'
                 + '<div class="col-sm-1">'
-                + '<img src="images/buyer.jpg"/>'
+                + '<img src="images/buyer.png"/>'
                 + '<samp>***' + result[0].substr(-3) + '</samp>'
                 + '</div>'
                 + '<div class="col-sm-11">'
-                + '<p>' + fmtDate(result[1].toString()) + '</p>'
+                + '<p>' + fmtNewsDate(result[1].toString()) + '</p>'
                 + '<p name="newsstar" data-score="' + result[2] + '"></p>'
                 + '<p>' + result[3] + '</p>'
                 + '</div>'

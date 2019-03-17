@@ -78,16 +78,16 @@
                     <button class="btn btn-default btn-xs" id="searchBtn" style="background-color: #17d0ff" onclick="keyWordSearch()">查 询</button>
                 </div>
                 <div class="col-xs-4" style="padding-right: 40px;text-align: right;">
-                    <div class="btn-group">
+                    <div class="btn-group" id="myProductDropdown">
                         <button class="btn btn-default btn-xs" data-toggle="dropdown" style="background-color: #17d0ff">类型<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="myProducts?page=0&style=照片">照片</a></li>
-                            <li><a href="myProducts?page=0&style=电影">电影</a></li>
-                            <li><a href="myProducts?page=0&style=音乐">音乐</a></li>
-                            <li><a href="myProducts?page=0&style=程序">程序</a></li>
-                            <li><a href="myProducts?page=0&style=文章">文章</a></li>
-                            <li><a href="myProducts?page=0&style=书籍">书籍</a></li>
+                            <li><a href="myProducts?style=照片">照片</a></li>
+                            <li><a href="myProducts?style=电影">电影</a></li>
+                            <li><a href="myProducts?style=音乐">音乐</a></li>
+                            <li><a href="myProducts?style=程序">程序</a></li>
+                            <li><a href="myProducts?style=文章">文章</a></li>
+                            <li><a href="myProducts?style=书籍">书籍</a></li>
                         </ul>
                     </div>
                 </div>
@@ -106,24 +106,24 @@
                             <a href="product.html?id=10086">
                                 <div style="position: relative;">
                                     <img id="cover" class="img-cover" src="images/huawei.jpg" alt="商品封面"/>
-                                    <figcaption id="name" class="img-caption">地下城与勇士</figcaption>
+                                    <figcaption id="name" class="img-caption">写真集</figcaption>
                                 </div>
                             </a>
                             <div class="caption">
                                 <table class="dashed_tbl">
                                     <tr>
                                         <td>销量: <samp id="sales">100</samp></td>
-                                        <td>评分: <samp id="score">100</samp></td>
+                                        <td>评分: <samp id="score">10</samp></td>
                                     </tr>
                                 </table>
                                 <span class="label label-info">类型</span>
                                 <samp id="style">冒险</samp>
                                 <br/>
                                 <span class="label label-info">简介</span>
-                                <samp id="intro">这是简介这是简介这是简介......</samp>
+                                <samp id="intro">这是简介......</samp>
                                 <br/>
-                                <span class="label label-info">玩法</span>
-                                <samp id="rules">这是玩法这是玩法这是玩法......</samp>
+                                <span class="label label-info">说明</span>
+                                <samp id="rules">这是说明......</samp>
                                 <div align="center">
                                     <button class="btn btn-danger btn-xs" onclick="App.start(10086)">查看商品</button>
                                     <button data-toggle="modal" data-target="#modal" onclick="App.set(10086)">

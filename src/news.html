@@ -35,7 +35,7 @@
         <div role="tabpanel" class="tab-pane">
             <!--顶部模块-->
             <div class="check-div">
-                文明友善交流！
+                请文明友善交流！
             </div>
             <!--资讯主页-->
             <!-----资讯详情上部分开始------->
@@ -46,8 +46,12 @@
                     <span class="name" id="newstitle">农科奇观——母猪上树</span>
                     <span class="btn-primary" id="newsstyle">新闻</span>
                     <p class="normal">评分：<samp id="newsscore">10</samp></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                     <p class="buy">
-                        <button onclick="window.location.href='store/newsHome.html'">返回主页</button>
+                        <button id="commentnews" onclick="window.location.href='www.baidu.com'" style="background-color: red">立即评价</button>
+                        <button onclick="window.location.href='store/newsHome.html'" style="background-color: #00bdef">返回主页</button>
                     </p>
                 </div>
             </div>
@@ -60,10 +64,10 @@
             <div class="panelContainer">
                 <p>
                     <span class="glyphicon glyphicon-user"></span>
-                    <samp id="newsowner">0xdb35A957F0C04a6739c48f4906D2aF09C447c0c4</samp>
+                    <samp id="newsowner">0x413a1395f59324b7bbc5781d8dc4398dc4502790</samp>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>
-                    <samp id="date">2019-03-07</samp>
+                    <samp id="newsdate">2019-03-07</samp>
                 </p>
 
                 <p class="title" id="panetext">正文</p>
@@ -71,7 +75,7 @@
                     null
                 </p>
 
-                <p class="title" id="panecomment">读者评价(<samp id="news_comments_cnt">0</samp>)</p>
+                <p class="title" id="panecomment">网友评价(<samp id="news_comments_cnt">0</samp>)</p>
                 <div id="newscomments">
                     <div class="row" hidden><!--template-->
                         <div class="col-sm-1">

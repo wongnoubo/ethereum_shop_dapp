@@ -42,7 +42,11 @@ App = {
         });
     },
 
-    getNewsHomeProductByKeyword: async function(keyword){
+    getNewsHomeByType: async function(type){
+
+    },
+
+    getNewsHomeByKeyword: async function(keyword){
         var tempNum = await App._getNewsLength();
         var start = 0;
         var tempList = new Array();
@@ -171,7 +175,7 @@ App = {
  */
 function newsHomeSearch() {
     var searchKeyWord = document.getElementById("newshome-keyword").value;
-    App.getNewsHomeProductByKeyword(searchKeyWord);
+    App.getNewsHomeByKeyword(searchKeyWord);
 }
 
 $(function () {
