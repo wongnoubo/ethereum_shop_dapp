@@ -111,7 +111,7 @@ $(function () {
         $(this).next('span').html('');
     });
 
-    // 玩法限制
+    // 规则限制
     var rulesCnt = 1000;
     $("[name^='rules']").keyup(function () {
         var num = rulesCnt - $(this).val().length;

@@ -140,7 +140,7 @@ App = {
         $("#Viewnews").append(content);
     },
 
-    newsset: function (_id) {
+    Newsset: function (_id) {
         window.newsId = _id;
     },
 

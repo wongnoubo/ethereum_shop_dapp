@@ -16,7 +16,7 @@ contract Information{
         string text;  //资讯正文
         string cover; //资讯封面
 
-        uint date;
+        uint date;    //资讯发布时间
         uint score; //资讯评分
         uint clen; //资讯评论数量
         mapping(uint=>Comment) comments;    // 评价列表

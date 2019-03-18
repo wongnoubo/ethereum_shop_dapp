@@ -20,7 +20,6 @@
     <script type="text/javascript" src="js/pagination.js"></script>
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
-    <script type="text/javascript" src="app/news.js"></script><!--core-->
 </head>
 
 <body>
@@ -41,7 +40,7 @@
             <!-----资讯详情上部分开始------->
             <div class="panelContainer">
                 <img id="newscover" src="images/pig.jpg" width="450" height="270"/>
-                <div class="info">
+                <div class="info" id="newspage">
                     <span id="id" hidden>0</span>
                     <span class="name" id="newstitle">农科奇观——母猪上树</span>
                     <span class="btn-primary" id="newsstyle">新闻</span>
@@ -49,8 +48,8 @@
                     <p></p>
                     <p></p>
                     <p></p>
-                    <p class="buy">
-                        <button id="commentnews" onclick="window.location.href='www.baidu.com'" style="background-color: red">立即评价</button>
+                    <p class="buy" id="bottonCentent">
+                        <button id="commentnews" data-toggle="modal" data-target="#modal"  style="background-color: red" onclick="App.newsset(10086)">立即评价</button>
                         <button onclick="window.location.href='store/newsHome.html'" style="background-color: #00bdef">返回主页</button>
                     </p>
                 </div>
@@ -94,10 +93,49 @@
             <!-----商品详情下部分结束------->
             <!--底部分页-->
             <footer class="footer">
-                <div id="paginationnews"></div>
+                <div id="pagination"></div>
             </footer>
+            <!--资讯评分-->
+            <div class="modal" id="modal" aria-labelledby="modalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modalLabel">(>﹏<)</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <form class="form-horizontal" id="starForm">
+                                    <div class="form-group">
+                                        <label for="star" class="col-xs-4 control-label">打分</label>
+                                        <div class="col-xs-8">
+                                            <div name="star" id="star"></div>
+                                            <span id="hint"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content" class="col-xs-4 control-label">留言</label>
+                                        <div class="col-xs-8">
+                                            <textarea rows="3" name="content" id="content"
+                                                      class="form-control input-sm duiqi"></textarea>
+                                            <span class="error"></span> <!-- error字数限制 -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-xs btn-default" id="cancel" data-dismiss="modal">取 消</button>
+                            <button class="btn btn-xs btn-danger" onclick="App.newsevaluate()" id="starNewsBtn">确 认</button>
+                        </div>
+                    </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div><!--右侧内容栏-->
     </div><!--右侧内容栏-->
 </div>
+</div>
+    <script type="text/javascript" src="app/news.js"></script><!--core-->
 </body>
 </html>

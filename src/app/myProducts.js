@@ -167,6 +167,8 @@ App = {
     },
 
     set: async function (id) {
+        console.log(111);
+        return;
         window.evaluateId = id;
         window.evaluateScore = 10;
         var result = await App._isEvaluated(id);
@@ -181,7 +183,7 @@ App = {
                 target: '#hint',
                 targetKeep: true,
                 targetText: '请选择评分',
-                hints: ['差', '中', '良', '优', '五星', 'A', 'S', 'SS', 'SSS', '超神'],
+                hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
                 click: function (score, evt) {
                     window.evaluateScore = score;
                 }
@@ -197,7 +199,7 @@ App = {
                 target: '#hint',
                 targetKeep: true,
                 targetText: '请选择评分',
-                hints: ['差', '中', '良', '优', '五星', 'A', 'S', 'SS', 'SSS', '超神'],
+                hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
                 click: function (score, evt) {
                     window.evaluateScore = score;
                 }
@@ -288,36 +290,17 @@ App = {
 
 
 /**
- * 获取链接中的变量style
+ * 点击事件监听器，监听list节点的点击事件
  */
+document.querySelector('#list').addEventListener('click', handleClick);
 
-function getMyProductPageQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var pair = query.split("=");
-    if (pair[0] == variable) {
-        unicodeToZh(pair[1]);
-    }
-    return (false);
+function handleClick(e) {
+    const target = e.target;//鼠标点击的目标
+    if (target.tagName.toLowerCase() !== 'a') return;//筛选目标里面的a
+    App.getProductsByType(target.innerHTML);
+    console.log(target.innerHTML);
 }
 
-function unicodeToZh(pair) {
-    var target = pair[1].match(/\\u\d+/g);
-    if (target && target.length > 0) {
-        target = target[0];
-        var temp = value.replace(target, '{{@}}');
-        target = target.replace('\\u', '');
-        target = String.fromCharCode(parseInt(target));
-        return temp.replace("{{@}}", target);
-    } else {
-        return value;
-    }
-}
-
-function getParameter() {
-    var type = getMyProductPageQueryVariable("style");
-    alert(type);
-    App.getProductsByType(type);
-}
 
 function keyWordSearch() {
     var keyword = document.getElementById("myProduct-keyword").value;

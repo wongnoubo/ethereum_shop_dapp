@@ -20,7 +20,6 @@
     <script type="text/javascript" src="js/pagination.js"></script>
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
-    <script type="text/javascript" src="app/myProducts.js"></script><!--core-->
 </head>
 
 <style type="text/css">
@@ -81,13 +80,13 @@
                     <div class="btn-group" id="myProductDropdown">
                         <button class="btn btn-default btn-xs" data-toggle="dropdown" style="background-color: #17d0ff">类型<span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="myProducts?style=照片">照片</a></li>
-                            <li><a href="myProducts?style=电影">电影</a></li>
-                            <li><a href="myProducts?style=音乐">音乐</a></li>
-                            <li><a href="myProducts?style=程序">程序</a></li>
-                            <li><a href="myProducts?style=文章">文章</a></li>
-                            <li><a href="myProducts?style=书籍">书籍</a></li>
+                        <ul class="dropdown-menu" id="list" role="menu" onclick="handleClick">
+                            <li><a>照片</a></li>
+                            <li><a>电影</a></li>
+                            <li><a>音乐</a></li>
+                            <li><a>程序</a></li>
+                            <li><a>文章</a></li>
+                            <li><a>书籍</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,7 +116,7 @@
                                     </tr>
                                 </table>
                                 <span class="label label-info">类型</span>
-                                <samp id="style">冒险</samp>
+                                <samp id="style">照片</samp>
                                 <br/>
                                 <span class="label label-info">简介</span>
                                 <samp id="intro">这是简介......</samp>
@@ -185,5 +184,6 @@
     </div><!--右侧内容栏-->
 </div><!--右侧内容栏-->
 </div>
+<script type="text/javascript" src="app/myProducts.js"></script><!--core-->
 </body>
 </html>
