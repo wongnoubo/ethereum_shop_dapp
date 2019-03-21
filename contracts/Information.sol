@@ -25,7 +25,7 @@ contract Information{
 
     // 资讯评价
     struct Comment {
-        address viewer;  // 查看者
+        address viewer; // 查看者
         uint date;      // 日期
         uint score;     // 评分
         string content; // 评论
