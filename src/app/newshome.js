@@ -43,7 +43,31 @@ App = {
     },
 
     getNewsHomeByType: async function(type){
-
+        var tempNum = await App._getNewsLength();
+        var start = 0;
+        var tempList = new Array();
+        for(var i = start;i<tempNum;i++){
+            var resultInfo = await App._getNewsInfo(i);
+            if(resultInfo[2].match(type)==null){
+            }else {
+                tempList.push(resultInfo);
+            }
+        }
+        window.searchNewsList = tempList;
+        window.totalNewsNum = tempList.length;
+        $("#pagination").pagination(totalNewsNum, {
+            callback: App.pageNewsCallbackSearch,
+            prev_text: '<<<',
+            next_text: '>>>',
+            ellipse_text: '...',
+            current_page: 0, // 当前选中的页面
+            items_per_page: 8, // 每页显示的条目数
+            num_display_entries: 4, // 连续分页主体部分显示的分页条目数
+            num_edge_entries: 1 // 两侧显示的首尾分页的条目数
+        });
+        if(tempList.length==0){
+            alert("没有找到该类型资讯，请您换个搜索类型( ˶‾᷄࿀‾᷅˵ )");
+        }
     },
 
     getNewsHomeByKeyword: async function(keyword){
@@ -176,6 +200,18 @@ App = {
 function newsHomeSearch() {
     var searchKeyWord = document.getElementById("newshome-keyword").value;
     App.getNewsHomeByKeyword(searchKeyWord);
+}
+
+/**
+ * 点击事件监听器，监听list节点的点击事件
+ */
+document.querySelector('#newsList').addEventListener('click', handleClick);
+
+function handleClick(e) {
+    const target = e.target;//鼠标点击的目标
+    if (target.tagName.toLowerCase() !== 'a') return;//筛选目标里面的a
+    console.log(target.innerHTML);
+    App.getNewsHomeByType(target.innerHTML);
 }
 
 $(function () {
