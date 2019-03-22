@@ -38,6 +38,9 @@ App = {
         }
         window.productList = resultList;
         window.totalNum = resultList.length;
+       if(totalNum==0){
+           alert("没有找到该商品信息，请您换个搜索关键词( ˶‾᷄࿀‾᷅˵ )");
+       }
         $("#pagination").pagination(totalNum, {
             callback: App.pageCallback,
             prev_text: '<<<',

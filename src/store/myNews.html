@@ -20,7 +20,6 @@
     <script type="text/javascript" src="js/pagination.js"></script>
     <script type="text/javascript" src="app/web3.min.js"></script><!--core-->
     <script type="text/javascript" src="app/truffle-contract.js"></script><!--core-->
-    <script type="text/javascript" src="app/myNews.js"></script><!--core-->
 </head>
 
 <style type="text/css">
@@ -74,19 +73,19 @@
                     <button class="btn btn-yellow btn-xs" onclick="App.getCommentedNews()">我评价的资讯</button>
                 </div>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control input-sm" placeholder="输入关键字搜索" id="myProduct-keyword">
+                    <input type="text" class="form-control input-sm" placeholder="输入关键字搜索" id="myNewsSearchBtn">
                     <button class="btn btn-default btn-xs" id="searchBtn" style="background-color: #17d0ff" onclick="keyWordSearch()">查 询</button>
                 </div>
                 <div class="col-xs-4" style="padding-right: 40px;text-align: right;">
                     <div class="btn-group">
                         <button class="btn btn-default btn-xs" data-toggle="dropdown" style="background-color: #17d0ff">类型<span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="myNews?page=0&style=新闻">新闻</a></li>
-                            <li><a href="myNews?page=0&style=通知">通知</a></li>
-                            <li><a href="myNews?page=0&style=租赁">租赁</a></li>
-                            <li><a href="myNews?page=0&style=借贷">借贷</a></li>
-                            <li><a href="myNews?page=0&style=公告">公告</a></li>
+                        <ul class="dropdown-menu" role="menu" id="myNewsList" onclick="handleClick">
+                            <li><a>新闻</a></li>
+                            <li><a>通知</a></li>
+                            <li><a>租赁</a></li>
+                            <li><a>借贷</a></li>
+                            <li><a>公告</a></li>
                         </ul>
                     </div>
                 </div>
@@ -173,5 +172,6 @@
     </div><!--右侧内容栏-->
 </div><!--右侧内容栏-->
 </div>
+<script type="text/javascript" src="app/myNews.js"></script><!--core-->
 </body>
 </html>
