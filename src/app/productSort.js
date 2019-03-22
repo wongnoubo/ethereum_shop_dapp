@@ -41,7 +41,7 @@ App = {
                 +'<div class="col-xs-1" id="price">'+result[5]+'</div>'
                 +'<div class="col-xs-1" id="all">'+Math.round(Number(result[5]*0.49)+Number(result[6]*0.49)+Number(result[7]*0.02))+'</div>'
                 +' <div class="col-xs-1">'
-                +'<a href="product.html?id='+i+'"><img id="cover" style="width: 50px;height: 50px;" src='+result[9]+'/></a>'
+                +'<a href="product.html?id='+sortList[i][0]+'"><img id="cover" style="width: 50px;height: 50px;" src='+result[9]+'/></a>'
                 +'</div>'
                 +'</div>'
         }
@@ -220,5 +220,5 @@ $(function () {
     // ##### note #####
 
     // 激活导航
-    $("#home-menu").addClass("sort-menu");
+    $("#sort-menu").addClass("sort-menu");
 });

@@ -151,5 +151,5 @@ $(function () {
     // ##### note #####
 
     // 激活导航
-    $("#myProducts-menu").addClass("menu-item-active");
+    $("#mynews-menu").addClass("menu-item-active");
 });

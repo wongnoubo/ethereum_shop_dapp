@@ -50,6 +50,11 @@ document.write("<!--左侧菜单栏-->\n" +
     "            <span class=\"glyphicon glyphicon-camera\"></span>&nbsp;&nbsp;&nbsp;最新资讯\n" +
     "        </a>\n" +
     "    </div>\n" +
+    "    <div class=\"menu-item\" id=\"newssort-menu\" style=\"background-color:#ff5700;\">\n" +
+    "        <a class=\"menu-item col-xs-offset-2\" href=\"store/newsSort.html\">\n" +
+    "            <span class=\"glyphicon glyphicon-adjust\"></span>&nbsp;&nbsp;&nbsp;资讯排名\n" +
+    "        </a>\n" +
+    "    </div>\n" +
     "    <div class=\"menu-item\" id=\"help-menu\" style=\"background-color:#ff5700;\">\n" +
     "        <a class=\"menu-item col-xs-offset-2\" href=\"store/help.html\">\n" +
     "            <span class=\"glyphicon glyphicon-hand-right\"></span>&nbsp;&nbsp;&nbsp;帮助中心\n" +
