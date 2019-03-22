@@ -106,7 +106,8 @@ contract Information{
         require(id < news.length);
         // 读取合约
         News storage g = news[id];
-        require(g.owner != msg.sender && !isEvaluated(id)); // 限制条件
+//        require(g.owner != msg.sender && !isEvaluated(id)); // 限制条件
+        //主人可以自己评价，可以多次评价
         require(0 <= score && score <= 10); // 合法条件
 
         // 记录评价

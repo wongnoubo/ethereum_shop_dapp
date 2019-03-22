@@ -198,9 +198,11 @@ App = {
                     }).then(function (result) {
                         alert("购买成功,等待写入区块!");
                         $("#modal").modal('hide');
+                        window.location.reload();
                     }).catch(function (err) {
                         alert("购买失败: " + err);
                         $("#modal").modal('hide');
+                        window.location.reload();
                     });
                 }
             });

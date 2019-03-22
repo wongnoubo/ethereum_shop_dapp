@@ -24,57 +24,6 @@ App = {
     },
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    /*getNews:async function(){
-        window.gid = getNewsQueryVariable('id');
-
-        var result = await App._getNewsInfo(gid);
-        $("#newsowner").html(result[0]);
-        $("#newstitle").html(result[1]);
-        $("#newsstyle").html(result[2]);
-        $("#newstext").html(result[3]);
-        $("#newsscore").html(result[5].toString());
-        $("#newsdate").html(fmtNewsDate(result[6].toString()));
-        $("#newscover").attr('src', result[4]);
-
-        $("#buttonContent").html('');
-        var buttonContent = '';
-        buttonContent+= '<p></p>'
-        +'<p></p>'
-        +'<p></p>'
-        +'<p class="buy">'
-        +'<button id="commentnews"  style="background-color: red" onclick="App.newsset('+gid+')">立即评价</button>'
-        +'<button onclick="window.location.href=\'store/newsHome.html\'" style="background-color: #00bdef">返回主页</button>'
-        +'</p>'
-        $("#buttonContent").append(buttonContent);
-
-        var clen = await App._getNewsCommentLength(gid);
-        $("#news_comments_cnt").html(clen.toString());
-        var content = '';
-        for (var i = 0; i < clen; i++) {
-            var result = await App._getNewsCommentInfo(gid, i);
-            content += '<div class="row">'
-                + '<div class="col-sm-1">'
-                + '<img src="images/buyer.png"/>'
-                + '<samp>***' + result[0].substr(-3) + '</samp>'
-                + '</div>'
-                + '<div class="col-sm-11">'
-                + '<p>' + fmtNewsDate(result[1].toString()) + '</p>'
-                + '<p name="newsstar" data-score="' + result[2] + '"></p>'
-                + '<p>' + result[3] + '</p>'
-                + '</div>'
-                + '</div>'
-                + '<hr/>';
-        }
-        $("#newscomments").append(content);
-        // 设置星星
-        $("[name^='newsstar']").raty({
-            number: 10, // 星星上限
-            readOnly: true,
-            score: function () {
-                return $(this).attr('data-score');
-            }
-        });
-    },*/
 
     getNews:async function(){
         window.gid = getNewsQueryVariable('id');
@@ -136,25 +85,25 @@ App = {
     newsset: async function(id){
         window.evaluateNewsScore = 10;
         window.evaluateNewsId = id;
-        var result = await App._isNewsEvaluated(id);
+        // var result = await App._isNewsEvaluated(id);
         showModal();
-        if (result) {
-            // 已评价
-            $("#starNewsBtn").html('已 评');
-            $("#starNewsBtn").attr("disabled", true);
-            // 重置星星
-            $('#star').raty({
-                number: 10, // 星星上限
-                targetType: 'hint', // number是数字值 hint是设置的数组值
-                target: '#hint',
-                targetKeep: true,
-                targetText: '请选择评分',
-                hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
-                click: function (score, evt) {
-                    window.evaluateNewsScore = score;
-                }
-            });
-        } else {
+        // if (result) {
+        //     // 已评价
+        //     $("#starNewsBtn").html('已 评');
+        //     $("#starNewsBtn").attr("disabled", true);
+        //     // 重置星星
+        //     $('#star').raty({
+        //         number: 10, // 星星上限
+        //         targetType: 'hint', // number是数字值 hint是设置的数组值
+        //         target: '#hint',
+        //         targetKeep: true,
+        //         targetText: '请选择评分',
+        //         hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
+        //         click: function (score, evt) {
+        //             window.evaluateNewsScore = score;
+        //         }
+        //     });
+        // } else {
             // 未评价
             $("#starNewsBtn").html('确 认');
             $("#starNewsBtn").attr("disabled", false);
@@ -170,7 +119,7 @@ App = {
                     window.evaluateNewsScore = score;
                 }
             });
-        }
+        // }
 
     },
 

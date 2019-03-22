@@ -167,8 +167,7 @@ App = {
     },
 
     set: async function (id) {
-        console.log(111);
-        return;
+
         window.evaluateId = id;
         window.evaluateScore = 10;
         var result = await App._isEvaluated(id);
@@ -208,6 +207,7 @@ App = {
     },
 
     evaluate: async function () {
+        console.log("nimade");
         var content = $("#content").val();
         if (content == '') content = '对方很高冷,什么也没有说......';
         store.deployed().then(function (storeInstance) {
@@ -216,9 +216,11 @@ App = {
             }).then(function (result) {
                 alert("评价成功,等待写入区块!");
                 $('#modal').modal('hide');
+                window.location.reload();
             }).catch(function (err) {
                 alert("评价失败: " + err);
                 $('#modal').modal('hide');
+                window.location.reload();
             });
         });
     },
