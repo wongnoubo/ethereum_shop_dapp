@@ -118,6 +118,7 @@ App = {
         var result = await App._getCommentedNews();
         window.newsList = result;
         window.totalNewsNum = result.length;
+        console.log(totalNewsNum);
         $("#pagination").pagination(totalNewsNum, {
             callback: App.pageNewsCallback,
             prev_text: '<<<',
