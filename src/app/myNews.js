@@ -140,7 +140,7 @@ App = {
         var end = Math.min((index + 1) * pageNum, totalNewsNum); // 结束
         var content = '';
         for (var i = start; i < end; i++) {
-            var result = await App._getNewsInfo(i);
+            var result = await App._getNewsInfo(newsList[i]);
             content += '<div class="col-sm-6 col-md-3" >'
                 + '<div class="thumbnail">'
                 + '<a href="news.html?id=' + i + '">'
