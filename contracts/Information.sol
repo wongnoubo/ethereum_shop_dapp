@@ -113,6 +113,7 @@ contract Information{
         // 记录评价
         g.score += score;
         g.comments[g.clen++] = Comment(msg.sender, now, score, content);
+        userNewsPool[msg.sender].commentedNews.push(id);
 
         emit evaluateSuccess(id, msg.sender, g.score);
     }
