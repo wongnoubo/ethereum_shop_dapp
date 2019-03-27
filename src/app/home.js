@@ -245,6 +245,14 @@ function homeSearch() {
     App.getHomeProductByKeyword(searchKeyWord);
 }
 
+//所需单据绑定回车键
+$('#home-keyword').bind('keydown',function(event){
+    if(event.keyCode == "13")
+    {
+        homeSearch();
+    }
+});
+
 /**
  * 点击事件监听器，监听list节点的点击事件
  */

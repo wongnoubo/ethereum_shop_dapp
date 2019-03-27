@@ -202,6 +202,14 @@ function newsHomeSearch() {
     App.getNewsHomeByKeyword(searchKeyWord);
 }
 
+//所需单据绑定回车键
+$('#newshome-keyword').bind('keydown',function(event){
+    if(event.keyCode == "13")
+    {
+        newsHomeSearch();
+    }
+});
+
 /**
  * 点击事件监听器，监听list节点的点击事件
  */

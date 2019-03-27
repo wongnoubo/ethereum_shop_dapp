@@ -279,6 +279,14 @@ function keyWordSearch() {
     App.getNewsByKeyword(keyword);
 }
 
+//所需单据绑定回车键
+$('#myNewsSearchBtn').bind('keydown',function(event){
+    if(event.keyCode == "13")
+    {
+        keyWordSearch();
+    }
+});
+
 $(function () {
     // ##### note #####
     App.init();

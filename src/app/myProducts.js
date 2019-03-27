@@ -312,6 +312,14 @@ function keyWordSearch() {
     App.getProductByKeyword(keyword);
 }
 
+//所需单据绑定回车键
+$('#myProduct-keyword').bind('keydown',function(event){
+    if(event.keyCode == "13")
+    {
+        keyWordSearch();
+    }
+});
+
 $(function () {
     // ##### note #####
     App.init();
