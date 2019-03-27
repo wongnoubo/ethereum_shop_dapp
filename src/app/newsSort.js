@@ -61,7 +61,7 @@ App = {
             return b[1]-a[1];
         });
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
@@ -91,7 +91,7 @@ App = {
             return b[1]-a[1];
         });
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
