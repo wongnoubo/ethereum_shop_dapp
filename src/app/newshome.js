@@ -46,15 +46,19 @@ App = {
         var tempNum = await App._getNewsLength();
         var start = 0;
         var tempList = new Array();
+        var newArray = new Array();
         for(var i = start;i<tempNum;i++){
+            tempList[i] = new Array(2);
             var resultInfo = await App._getNewsInfo(i);
             if(resultInfo[2].match(type)==null){
             }else {
-                tempList.push(resultInfo);
+                tempList[i][0]=i;
+                tempList[i][1]=resultInfo;
+                newArray.push(tempList[i]);
             }
         }
-        window.searchNewsList = tempList;
-        window.totalNewsNum = tempList.length;
+        window.searchNewsList = newArray;
+        window.totalNewsNum = newArray.length;
         $("#pagination").pagination(totalNewsNum, {
             callback: App.pageNewsCallbackSearch,
             prev_text: '<<<',
@@ -65,7 +69,7 @@ App = {
             num_display_entries: 4, // 连续分页主体部分显示的分页条目数
             num_edge_entries: 1 // 两侧显示的首尾分页的条目数
         });
-        if(tempList.length==0){
+        if(newArray.length==0){
             alert("没有找到该类型资讯，请您换个搜索类型( ˶‾᷄࿀‾᷅˵ )");
         }
     },
@@ -74,15 +78,19 @@ App = {
         var tempNum = await App._getNewsLength();
         var start = 0;
         var tempList = new Array();
+        var newArray = new Array();
         for(var i = start;i<tempNum;i++){
+            tempList[i] = new Array(2);
             var resultInfo = await App._getNewsInfo(i);
             if(resultInfo[1].match(keyword)==null){
             }else {
-                tempList.push(resultInfo);
+                tempList[i][0]=i;
+                tempList[i][1]=resultInfo;
+                newArray.push(tempList[i]);
             }
         }
-        window.searchNewsList = tempList;
-        window.totalNewsNum = tempList.length;
+        window.searchNewsList = newArray;
+        window.totalNewsNum = newArray.length;
         $("#pagination").pagination(totalNewsNum, {
             callback: App.pageNewsCallbackSearch,
             prev_text: '<<<',
@@ -93,7 +101,7 @@ App = {
             num_display_entries: 4, // 连续分页主体部分显示的分页条目数
             num_edge_entries: 1 // 两侧显示的首尾分页的条目数
         });
-        if(tempList.length==0){
+        if(newArray.length==0){
             alert("没有找到该资讯相关信息，请您换个搜索关键词( ˶‾᷄࿀‾᷅˵ )");
         }
     },
@@ -138,10 +146,10 @@ App = {
         var end = Math.min((index + 1) * pageNum, totalNewsNum); // 结束
         var content = '';
         for (var i = start; i < end; i++) {
-            var result = searchNewsList[i];
+            var result = searchNewsList[i][1];
             content += '<div class="col-sm-6 col-md-3" >'
                 + '<div class="thumbnail">'
-                + '<a href="news.html?id=' + i + '">'
+                + '<a href="news.html?id=' + searchNewsList[i][0] + '">'
                 + '<div style="position: relative;">'
                 + '<img id="newscover" class="img-cover" src="' + result[4] + '" alt="资讯封面"/>'
                 + '<figcaption id="newstitle" class="img-caption">' + result[1] + '</figcaption>'
