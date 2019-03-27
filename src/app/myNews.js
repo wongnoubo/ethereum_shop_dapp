@@ -26,21 +26,26 @@ App = {
      * @returns {Promise<void>}
      */
     getNewsByType: async function(type){
-        var tempNum = await App._getNewsLength();
+        var publishNews = await App._getPublishedNews();
+        var commentedNews = await App._getCommentedNews();
+        var result = publishNews.concat(commentedNews);
+        publishNews = null;
+        commentedNews = null;
+        var tempNum = result.length;
         var start = 0;
         var tempList = new Array();
         var resultInfo=null;
-        for(var i = start;i<tempNum;i++){
-            resultInfo = await App._getNewsInfo(i);
+        for(var i = start;i < tempNum;i++){
+            resultInfo = await App._getNewsInfo(result[i]);
             if(resultInfo[2].match(type)==null){
             }else {
-                tempList.push(resultInfo);
+                tempList.push(result[i]);
             }
         }
-        window.searchNewsList = tempList;
+        window.newsList = tempList;
         window.totalNewsNum = tempList.length;
         $("#pagination").pagination(totalNewsNum, {
-            callback: App.pageNewsCallbackSearch,
+            callback: App.pageNewsCallback,
             prev_text: '<<<',
             next_text: '>>>',
             ellipse_text: '...',
@@ -59,21 +64,25 @@ App = {
      * @returns {Promise<void>}
      */
     getNewsByKeyword: async function(keyword){
-        var tempNum = await App._getNewsLength();
+        var publishNews = await App._getPublishedNews();
+        var commentedNews = await App._getCommentedNews();
+        var result = publishNews.concat(commentedNews);
+        publishNews = null;
+        commentedNews = null;
+        var tempNum = result.length;
         var start = 0;
         var tempList = new Array();
-        var resultInfo=null;
         for(var i = start;i<tempNum;i++){
-            resultInfo = await App._getNewsInfo(i);
+            var resultInfo = await App._getNewsInfo(result[i]);
             if(resultInfo[1].match(keyword)==null){
             }else {
-                tempList.push(resultInfo);
+                tempList.push(result[i]);
             }
         }
-        window.searchNewsList = tempList;
+        window.newsList = tempList;
         window.totalNewsNum = tempList.length;
         $("#pagination").pagination(totalNewsNum, {
-            callback: App.pageNewsCallbackSearch,
+            callback: App.pageNewsCallback,
             prev_text: '<<<',
             next_text: '>>>',
             ellipse_text: '...',
@@ -143,41 +152,7 @@ App = {
             var result = await App._getNewsInfo(newsList[i]);
             content += '<div class="col-sm-6 col-md-3" >'
                 + '<div class="thumbnail">'
-                + '<a href="news.html?id=' + i + '">'
-                + '<div style="position: relative;">'
-                + '<img id="newscover" class="img-cover" src="' + result[4] + '" alt="资讯封面"/>'
-                + '<figcaption id="newstitle" class="img-caption">' + result[1] + '</figcaption>'
-                + '</div>'
-                + '</a>'
-                + '<div class="caption">'
-                +'<span class="label label-info">评分</span>'
-                +'<samp id="newsscore">' + result[5] + '</samp>'
-                +'<br/>'
-                + '<span class="label label-info">类型</span>'
-                + '<samp id="newsstyle">' + result[2] + '</samp>'
-                + '<br/>'
-                + '<span class="label label-info">文本</span>'
-                + '<samp id="newstext">' + result[3].substr(0, 20) + '......</samp>'
-                + '<br/>'
-                + '</div>'
-                + '</div>'
-                + '</div>';
-        }
-        $("#Viewnews").append(content);
-    },
-
-    pageNewsCallbackSearch: async function (index, jq) {
-        $("#bg").hide();
-        $("#Viewnews").html('');
-        var pageNum = 8;
-        var start = index * pageNum; // 开始
-        var end = Math.min((index + 1) * pageNum, totalNewsNum); // 结束
-        var content = '';
-        for (var i = start; i < end; i++) {
-            var result = searchNewsList[i];
-            content += '<div class="col-sm-6 col-md-3" >'
-                + '<div class="thumbnail">'
-                + '<a href="news.html?id=' + i + '">'
+                + '<a href="news.html?id=' + newsList[i] + '">'
                 + '<div style="position: relative;">'
                 + '<img id="newscover" class="img-cover" src="' + result[4] + '" alt="资讯封面"/>'
                 + '<figcaption id="newstitle" class="img-caption">' + result[1] + '</figcaption>'

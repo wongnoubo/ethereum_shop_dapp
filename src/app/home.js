@@ -39,17 +39,21 @@ App = {
 
     getHomeProductByKeyword: async function(keyword){
         var tempNum = await App._getProductLength();
+        var saleTempList = new Array();
         var start = 0;
-        var tempList = new Array();
+        var newArray = new Array();
         for(var i = start;i<tempNum;i++){
+            saleTempList[i] = new Array(2);
             var resultInfo = await App._getProductInfo(i);
             if(resultInfo[1].match(keyword)==null){
             }else {
-                tempList.push(resultInfo);
+                saleTempList[i][0]=i;
+                saleTempList[i][1]=resultInfo;
+                newArray.push(saleTempList[i]);
             }
         }
-        window.searchList = tempList;
-        window.totalNum = tempList.length;
+        window.searchList = newArray;
+        window.totalNum = newArray.length;
         $("#pagination").pagination(totalNum, {
             callback: App.pageCallbackSearch,
             prev_text: '<<<',
@@ -60,24 +64,28 @@ App = {
             num_display_entries: 4, // 连续分页主体部分显示的分页条目数
             num_edge_entries: 1 // 两侧显示的首尾分页的条目数
         });
-        if(tempList.length==0){
+        if(newArray.length==0){
             alert("没有找到该商品信息，请您换个搜索关键词( ˶‾᷄࿀‾᷅˵ )");
         }
     },
 
     getProductByType: async function(type){
         var tempNum = await App._getProductLength();
+        var saleTempList = new Array();
         var start = 0;
-        var tempList = new Array();
+        var newArray = new Array();
         for(var i = start;i<tempNum;i++){
+            saleTempList[i] = new Array(2);
             var resultInfo = await App._getProductInfo(i);
             if(resultInfo[2].match(type)==null){
             }else {
-                tempList.push(resultInfo);
+                saleTempList[i][0]=i;
+                saleTempList[i][1]=resultInfo;
+                newArray.push(saleTempList[i]);
             }
         }
-        window.searchList = tempList;
-        window.totalNum = tempList.length;
+        window.searchList = newArray;
+        window.totalNum = newArray.length;
         $("#pagination").pagination(totalNum, {
             callback: App.pageCallbackSearch,
             prev_text: '<<<',
@@ -144,10 +152,12 @@ App = {
         var end = Math.min((index + 1) * pageNum, totalNum); // 结束
         var content = '';
         for (var i = start; i < end; i++) {
-            var result = searchList[i];
+            var result = searchList[i][1];
+            console.log("searchList[i][1]"+searchList[i][1]);
+            console.log("searchList[i][0]"+searchList[i][0]);
             content += '<div class="col-sm-6 col-md-3" >'
                 + '<div class="thumbnail">'
-                + '<a href="product.html?id=' + i + '">'
+                + '<a href="product.html?id=' + searchList[i][0] + '">'
                 + '<div style="position: relative;">'
                 + '<img id="cover" class="img-cover" src="' + result[9] + '" alt="商品封面"/>'
                 + '<figcaption id="name" class="img-caption">' + result[1] + '</figcaption>'
@@ -169,7 +179,7 @@ App = {
                 + '<span class="label label-info">玩法</span>'
                 + '<samp id="rules">' + result[4].substr(0, 20) + '......</samp>'
                 + '<div align="center">'
-                + '<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal" onclick="App.set(' + i + ')">'
+                + '<button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal" onclick="App.set(' + searchList[i][0] + ')">'
                 + '购买$ ' + (result[5])
                 + '</button>'
                 + '</div>'
