@@ -36,7 +36,8 @@ App = {
         var cover = $("#newscover")[0].files[0];
 
         // 上传到 IPFS
-        cover = 'https://gateway.ipfs.io/ipfs/' + await App._ipfsNewsadd(cover);
+        cover = 'https://ipfs.io/ipfs/' + await App._ipfsNewsadd(cover);
+        // cover = 'localhost/ipfs/' + await App._ipfsNewsadd(cover);
         $("#tip_cover").html(cover).attr('href', cover);
         // 上传到 Ethereum
         App.handleNewsPublish(title, style, text, cover);
@@ -87,7 +88,7 @@ $(function () {
 
     // 文本限制
     var introCnt = 1000; // 文本字数最大限制
-    $("[name^='text']").keyup(function () {
+    $("[name^='newstext']").keyup(function () {
         var num = introCnt - $(this).val().length;
         if (num > 0) {
             $(this).next('span').html('剩余' + num + '字数');
