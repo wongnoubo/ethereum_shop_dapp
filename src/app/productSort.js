@@ -17,12 +17,13 @@ App = {
             // Set the provider for our contract
             window.store.setProvider(web3.currentProvider);
             // Init app
-            App.sortProductBySales();
+            // App.sortProductBySales();
         });
     },
 
     ////////////////////////////////////////////////////////////////////////////////////////
     pageCallback: async function(index,jq){
+        $("#bg").hide();
         $("#sortList").html("");
         var pageNum = 10;
         var start = index*pageNum;//开始
