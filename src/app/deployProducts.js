@@ -44,8 +44,8 @@ App = {
         var file = $("#file")[0].files[0];
 
         // 上传到 IPFS
-        cover = 'https://gateway.ipfs.io/ipfs/' + await App._ipfsadd(cover);
-        file = 'https://gateway.ipfs.io/ipfs/' + await App._ipfsadd(file);
+        cover = 'https://ipfs.io/ipfs/' + await App._ipfsadd(cover);
+        file = 'https://ipfs.io/ipfs/' + await App._ipfsadd(file);
         $("#tip_cover").html(cover).attr('href', cover);
         $("#tip_file").html(file).attr('href', file);
         // 上传到 Ethereum

@@ -66,9 +66,8 @@ App = {
         var newArray = saleTempList.sort(function (a,b) {
             return b[1]-a[1];
         });
-        console.log("ninn  saa "+newArray);
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
@@ -101,7 +100,7 @@ App = {
         });
         console.log("ninn  saa "+newArray);
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
@@ -133,7 +132,7 @@ App = {
         });
         console.log("ninn  saa "+newArray);
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
@@ -163,9 +162,8 @@ App = {
         var newArray = saleTempList.sort(function (a,b) {
             return b[1]-a[1];
         });
-        console.log("ninn  saa "+newArray);
         window.sortList = newArray;
-        $("tableBody").pagination(totalNum,{
+        $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
             prev_text: '<<<',
             next_text: '>>>',
