@@ -99,7 +99,6 @@ App = {
         var newArray = saleTempList.sort(function (a,b) {
             return b[1]-a[1];
         });
-        console.log("ninn  saa "+newArray);
         window.sortList = newArray;
         $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
@@ -131,7 +130,6 @@ App = {
         var newArray = saleTempList.sort(function (a,b) {
             return b[1]-a[1];
         });
-        console.log("ninn  saa "+newArray);
         window.sortList = newArray;
         $("#pagination").pagination(totalNum,{
             callback: App.pageCallback,
