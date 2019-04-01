@@ -85,42 +85,22 @@ App = {
     newsset: async function(id){
         window.evaluateNewsScore = 10;
         window.evaluateNewsId = id;
-        // var result = await App._isNewsEvaluated(id);
         showModal();
-        // if (result) {
-        //     // 已评价
-        //     $("#starNewsBtn").html('已 评');
-        //     $("#starNewsBtn").attr("disabled", true);
-        //     // 重置星星
-        //     $('#star').raty({
-        //         number: 10, // 星星上限
-        //         targetType: 'hint', // number是数字值 hint是设置的数组值
-        //         target: '#hint',
-        //         targetKeep: true,
-        //         targetText: '请选择评分',
-        //         hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
-        //         click: function (score, evt) {
-        //             window.evaluateNewsScore = score;
-        //         }
-        //     });
-        // } else {
-            // 未评价
-            $("#starNewsBtn").html('确 认');
-            $("#starNewsBtn").attr("disabled", false);
-            // 重置星星
-            $('#star').raty({
-                number: 10, // 星星上限
-                targetType: 'hint', // number是数字值 hint是设置的数组值
-                target: '#hint',
-                targetKeep: true,
-                targetText: '请选择评分',
-                hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
-                click: function (score, evt) {
-                    window.evaluateNewsScore = score;
-                }
-            });
-        // }
-
+        // 未评价
+        $("#starNewsBtn").html('确 认');
+        $("#starNewsBtn").attr("disabled", false);
+        // 重置星星
+        $('#star').raty({
+            number: 10, // 星星上限
+            targetType: 'hint', // number是数字值 hint是设置的数组值
+            target: '#hint',
+            targetKeep: true,
+            targetText: '请选择评分',
+            hints: ['C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+', 'SSS'],
+            click: function (score, evt) {
+                window.evaluateNewsScore = score;
+            }
+        });
     },
 
     newsevaluate: async function () {
