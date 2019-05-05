@@ -1,7 +1,6 @@
 pragma solidity >=0.4.22 <0.6.0;
 // 代币系统
 contract Token {
-
     uint tokenTotal;    // 代币总和
     uint tokenPrice;    // 代币价格
     uint balanceTokens; // 合约余额
@@ -24,7 +23,6 @@ contract Token {
     function buy() public payable {
         uint tokensToBuy = msg.value / tokenPrice;
         require(tokensToBuy <= balanceTokens); // 合约代币是否足够
-
         // 更新信息
         balances[msg.sender] += tokensToBuy;
         balanceTokens -= tokensToBuy;
@@ -34,7 +32,6 @@ contract Token {
     // 卖出代币
     function sell(uint tokensToSell) public {
         require(tokensToSell <= balances[msg.sender]); // 用户代币是否足够
-
         // 更新信息
         uint total = tokensToSell * tokenPrice;
         balances[msg.sender] -= tokensToSell;

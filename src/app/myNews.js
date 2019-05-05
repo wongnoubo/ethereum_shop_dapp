@@ -28,9 +28,21 @@ App = {
     getNewsByType: async function(type){
         var publishNews = await App._getPublishedNews();
         var commentedNews = await App._getCommentedNews();
-        var result = publishNews.concat(commentedNews);
-        publishNews = null;
-        commentedNews = null;
+        var tempHash = {};
+        var result=[];
+        for(var i = 0; i<publishNews.length; i++){
+            if(tempHash[publishNews[i]]==undefined){
+                tempHash[publishNews[i]] = i;
+            }
+        }
+        for(var i = 0; i<commentedNews.length; i++){
+            if(tempHash[commentedNews[i]]==undefined){
+                tempHash[commentedNews[i]] = i;
+            }
+        }
+        for(var key in tempHash){
+            result.push(key);
+        }
         var tempNum = result.length;
         var start = 0;
         var tempList = new Array();
@@ -66,9 +78,21 @@ App = {
     getNewsByKeyword: async function(keyword){
         var publishNews = await App._getPublishedNews();
         var commentedNews = await App._getCommentedNews();
-        var result = publishNews.concat(commentedNews);
-        publishNews = null;
-        commentedNews = null;
+        var tempHash = {};
+        var result=[];
+        for(var i = 0; i<publishNews.length; i++){
+            if(tempHash[publishNews[i]]==undefined){
+                tempHash[publishNews[i]] = i;
+            }
+        }
+        for(var i = 0; i<commentedNews.length; i++){
+            if(tempHash[commentedNews[i]]==undefined){
+                tempHash[commentedNews[i]] = i;
+            }
+        }
+        for(var key in tempHash){
+            result.push(key);
+        }
         var tempNum = result.length;
         var start = 0;
         var tempList = new Array();
