@@ -44,12 +44,12 @@
                 <img id="cover" src="images/huawei.jpg" width="450" height="270"/>
                 <div class="info">
                     <span id="id" hidden>0</span>
-                    <span class="name" id="name">张大千摄影作品</span>
-                    <span class="badge" id="style">照片</span>
-                    <p class="price">价格：<samp id="price">￥100.00</samp></p>
-                    <p class="discount">优惠：<samp id="discount">￥69.00</samp></p>
-                    <p class="normal">销量：<samp id="sales">100</samp></p>
-                    <p class="normal">评分：<samp id="score">100</samp></p>
+                    <span class="name" id="name"></span>
+                    <span class="badge" id="style"></span>
+                    <p class="price">价格：<samp id="price"></samp></p>
+                    <p class="discount">优惠：<samp id="discount"></samp></p>
+                    <p class="normal">销量：<samp id="sales"></samp></p>
+                    <p class="normal">评分：<samp id="score"></samp></p>
                     <p class="buy">
                         <button id="buy" onclick="App.purchase()">立即购买</button>
                         <button onclick="window.location.href='store/home.html'">返回主页</button>
@@ -65,35 +65,22 @@
             <div class="panelContainer">
                 <p>
                     <span class="glyphicon glyphicon-user"></span>
-                    <samp id="owner">0xdb35A957F0C04a6739c48f4906D2aF09C447c0c4</samp>
+                    <samp id="owner"></samp>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>
-                    <samp id="date">2018-01-01</samp>
+                    <samp id="date"></samp>
                 </p>
 
                 <p class="title" id="panel01">商品简介</p>
                 <p id="intro">
-                   null
                 </p>
 
                 <p class="title" id="panel02">商品使用</p>
                 <p id="rules">
-                    null
                 </p>
 
                 <p class="title" id="panel03">买家评价(<samp id="comments_cnt">0</samp>)</p>
                 <div id="comments">
-                    <div class="row" hidden><!--template-->
-                        <div class="col-sm-1">
-                            <img src="images/buyer.png"/>
-                            <samp>***888</samp>
-                        </div>
-                        <div class="col-sm-11">
-                            <p>2019-03-17 0:5:7</p>
-                            <p name="star" data-score="5"></p>
-                            <p>超级好的商品，大家可以放心购买！</p>
-                        </div>
-                    </div>
                     <hr/>
                 </div>
             </div>

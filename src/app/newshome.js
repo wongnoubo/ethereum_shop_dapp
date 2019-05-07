@@ -50,6 +50,7 @@ App = {
         for(var i = start;i<tempNum;i++){
             tempList[i] = new Array(2);
             var resultInfo = await App._getNewsInfo(i);
+            console.log(resultInfo);
             if(resultInfo[2].match(type)==null){
             }else {
                 tempList[i][0]=i;
